@@ -18,7 +18,7 @@ import java.util.List;
  *     IAM context.
  *     This class is a part of the ACL layer.
  * </p>
- *
+ * @version 1.0
  */
 public class IamContextFacade {
     private final UserCommandService userCommandService;
