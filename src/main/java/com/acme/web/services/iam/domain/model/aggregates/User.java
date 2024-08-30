@@ -18,7 +18,7 @@ import java.util.Set;
 /**
  * User aggregate root
  * This class represents the aggregate root for the User entity.
- *
+ * @author Nadia Lucas
  * @see AuditableAbstractAggregateRoot
  */
 @Getter
