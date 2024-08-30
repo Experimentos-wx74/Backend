@@ -3,6 +3,7 @@ package com.acme.web.services.shared.infrastructure.persistence.jpa.configuratio
 import org.hibernate.boot.model.naming.Identifier;
 import org.hibernate.boot.model.naming.PhysicalNamingStrategy;
 import org.hibernate.engine.jdbc.env.spi.JdbcEnvironment;
+
 import static io.github.encryptorcode.pluralize.Pluralize.pluralize;
 public class SnakeCaseWithPluralizedTablePhysicalNamingStrategy implements PhysicalNamingStrategy {
     @Override
