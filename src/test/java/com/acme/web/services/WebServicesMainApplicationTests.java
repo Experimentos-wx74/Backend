@@ -1,4 +1,4 @@
-package com.acme.web.services.webservicesmain;
+package com.acme.web.services;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
