@@ -1,4 +1,4 @@
-package com.acme.web.services.management.infrastructure.persistence.jpa.repositories;
+package com.acme.web.services.management.infrastructure.persitence.jpa.repositories;
 
 import com.acme.web.services.management.domain.model.aggregates.Cage;
 import org.springframework.data.jpa.repository.JpaRepository;
