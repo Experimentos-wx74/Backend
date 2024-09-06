@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 
 /**
  * This class represents the service implementation for the AppointmentCommandService.
- * @author Sebastián Roberto Paredes Puente -U202217239
+ * @author Fiorella Jarama - u202120418
  * @version 1.0
  */
 
