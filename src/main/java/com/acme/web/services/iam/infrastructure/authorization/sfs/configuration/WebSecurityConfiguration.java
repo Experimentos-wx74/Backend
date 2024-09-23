@@ -18,6 +18,8 @@ import org.springframework.security.web.AuthenticationEntryPoint;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
+import java.util.List;
+
 /**
  * Web Security Configuration.
  * <p>
@@ -88,6 +90,17 @@ public class WebSecurityConfiguration {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.csrf(csrfConfigurer -> csrfConfigurer.disable())
+                .cors(corsCustomizer -> corsCustomizer
+                        .configurationSource(request -> {
+                            var cors = new org.springframework.web.cors.CorsConfiguration();
+                            cors.setAllowedOrigins(List.of("http://localhost:4200"));
+                            cors.setAllowedMethods(List.of("*"));
+                            cors.setAllowedHeaders(List.of("*"));
+                            cors.setExposedHeaders(List.of("*"));
+                            cors.setAllowCredentials(true);
+                            return cors;
+                        })
+                )
                 .exceptionHandling(exceptionHandling -> exceptionHandling.authenticationEntryPoint(unauthorizedRequestHandler))
                 .sessionManagement( customizer -> customizer.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(authorizeRequests -> authorizeRequests
