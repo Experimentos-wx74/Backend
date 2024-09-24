@@ -93,7 +93,7 @@ public class WebSecurityConfiguration {
                 .cors(corsCustomizer -> corsCustomizer
                         .configurationSource(request -> {
                             var cors = new org.springframework.web.cors.CorsConfiguration();
-                            cors.setAllowedOrigins(List.of("http://localhost:4200"));
+                            cors.setAllowedOrigins(List.of("http://localhost:4200","https://agroconnect-demo-8c7ab.web.app"));
                             cors.setAllowedMethods(List.of("*"));
                             cors.setAllowedHeaders(List.of("*"));
                             cors.setExposedHeaders(List.of("*"));
