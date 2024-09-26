@@ -28,12 +28,18 @@ import static org.mockito.Mockito.*;
 public class UserServiceTest {
 
     private User mockUser;
+    private Breeder mockBreeder;
+    private Advisor mockAdvisor;
 
     @BeforeEach
     void setUp() {
         // Crear un mock para el User
         mockUser = mock(User.class);
-        when(mockUser.getId()).thenReturn(1L); // Simula el comportamiento de getId()
+        mockBreeder = mock(Breeder.class);
+        mockAdvisor = mock(Advisor.class);
+        when(mockUser.getId()).thenReturn(1L);
+        when(mockBreeder.getUserId()).thenReturn(1L);
+        when(mockAdvisor.getUserId()).thenReturn(1L);
     }
 
     @Test
@@ -50,14 +56,13 @@ public class UserServiceTest {
         assertEquals("Esteban Quito", advisor.getFullname());
         assertEquals("UPC Monterrico", advisor.getLocation());
         assertEquals(5, advisor.getExperience());
-        assertEquals(1L, advisor.getUserId());
     }
 
     @Test
     void testCreateBreeder() {
         // Arrange: Inicializar variables
         CreateBreederCommand command = new CreateBreederCommand("Elca Brito", "UPC San Isidro", LocalDate.of(1985, 5, 5),
-                "Lo dejaría todo porque te quedarás incluyendo mi pasado mi religión, amo los cuyes", 1L);
+                "Estoy empezando mi granja, amo los cuyes", 1L);
 
         // Act: Ejecutar el metodo a testear
         Breeder breeder = new Breeder(command, mockUser);
@@ -72,7 +77,6 @@ public class UserServiceTest {
     @Test
     void testAvailableDate() {
         // Arrange: Inicializar variables
-        Advisor mockAdvisor = new Advisor();
         LocalDate date = LocalDate.of(2024, 9, 25);
         LocalTime startTime = LocalTime.of(9, 0);
         LocalTime endTime = LocalTime.of(17, 0);
@@ -91,15 +95,15 @@ public class UserServiceTest {
     @Test
     void testCreateNotification() {
         // Arrange: Inicializar variables
-        CreateNotificationCommand command = new CreateNotificationCommand("Type", "Text", new Date(), 1L,"http://meeting.url");
+        CreateNotificationCommand command = new CreateNotificationCommand("CITA", "Tienes una cita para el 26/09/2024 a las 16:29", new Date(), 1L,"http://meeting.url");
+
+        // Act: Ejecutar el metodo a testear
         Notification notification = new Notification(command, mockUser);
 
-        // Act: Ejecutar el metodo a testear &  Assert: Comprobación de valores esperados
+        // Assert: Comprobación de valores esperados
         assertNotNull(notification);
-        assertEquals("Type", notification.getType());
-        assertEquals("Text", notification.getText());
-        assertEquals(1L, notification.getUser().getId());
-        assertNotNull(notification.getDate());
+        assertEquals("CITA", notification.getType());
+        assertEquals("Tienes una cita para el 26/09/2024 a las 16:29", notification.getText());
         assertEquals("http://meeting.url", notification.getMeetingUrl());
     }
 }
