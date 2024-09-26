@@ -1,1 +1,4 @@
+com\acme\web\services\core\entities\unit\tests\AppointmentServiceTest.class
 com\acme\web\services\WebServicesMainApplicationTests.class
+com\acme\web\services\core\entities\unit\tests\UserServiceTest.class
+com\acme\web\services\core\entities\unit\tests\PublicationServiceTest.class
