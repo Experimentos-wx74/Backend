@@ -65,7 +65,7 @@ public class UserServiceTest {
         // Assert: Comprobación de valores esperados
         assertNotNull(breeder);
         assertEquals("Elca Brito", breeder.getFullname());
-        assertEquals("Location", breeder.getLocation());
+        assertEquals("UPC San Isidro", breeder.getLocation());
         assertEquals(1L, breeder.getUserId());
     }
 
@@ -90,11 +90,11 @@ public class UserServiceTest {
 
     @Test
     void testCreateNotification() {
-        // Arrange
+        // Arrange: Inicializar variables
         CreateNotificationCommand command = new CreateNotificationCommand("Type", "Text", new Date(), 1L,"http://meeting.url");
         Notification notification = new Notification(command, mockUser);
 
-        // Act & Assert
+        // Act: Ejecutar el metodo a testear &  Assert: Comprobación de valores esperados
         assertNotNull(notification);
         assertEquals("Type", notification.getType());
         assertEquals("Text", notification.getText());
