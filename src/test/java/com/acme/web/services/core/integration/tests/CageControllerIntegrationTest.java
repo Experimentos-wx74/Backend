@@ -31,7 +31,7 @@ public class CageControllerIntegrationTest {
     }
 
     @Test
-    void testDeleteExpense() {
+    void testDeleteCage() {
         // Arrange: Iniciación de valores
         Long cageId = 1L;
         Cage mockCage = new Cage();
